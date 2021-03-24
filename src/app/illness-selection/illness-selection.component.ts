@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { IllnessService } from '../illness.service';
+import { illness, Iillness } from '../illness';
 
 @Component({
   selector: 'app-illness-selection',
@@ -6,15 +8,32 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./illness-selection.component.css']
 })
 export class IllnessSelectionComponent implements OnInit {
-  illnessApiUrl = "http://dmmw-api.australiaeast.cloudapp.azure.com:8080/illnesses";
+  illness = {} as Iillness;
+  illnesses: illness[] = [];
 
-  constructor() { }
+
+  arrayIllness: any;
+
+
+  constructor(
+    private illnessService: IllnessService
+  ) { }
 
   ngOnInit(): void {
+    this.getIllness();
   }
 
   getIllness() {
-    this.illnessApiUrl;
+    this.illnessService.getIllnesses().subscribe(res => {
+      this.illness = res,
+      // this.illness._embedded.illnesses.map(eachIllness => this.illnesses.push(eachIllness.Iillness))
+      this.illness._embedded.illnesses.forEach(eachIllness => {
+        console.log(eachIllness),
+        this.illnesses.push(eachIllness.illness)
+      })
+      // this.illness._embedded.illnesses.forEach(eachIllness => this.illnesses.push(eachIllness)),
+      console.log('new thing', this.illnesses)
+    });
   }
 
 }
