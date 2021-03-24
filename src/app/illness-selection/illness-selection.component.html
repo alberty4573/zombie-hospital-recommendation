@@ -1,5 +1,12 @@
+<h1>Please select your illness</h1>
 <mat-selection-list #shoes [multiple]="false">
+    <a routerLink="/pain-grading">
     <mat-list-option *ngFor="let illness of illnesses" [value]="illness.name">
-      {{illness.name}}
+        <div>
+            {{illness.name}}
+
+        </div>
     </mat-list-option>
+</a>
+
   </mat-selection-list>

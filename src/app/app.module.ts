@@ -7,13 +7,15 @@ import { IllnessSelectionComponent } from './illness-selection/illness-selection
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import {MatListModule} from '@angular/material/list';
+import { PainGradingComponent } from './pain-grading/pain-grading.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    IllnessSelectionComponent
+    IllnessSelectionComponent,
+    PainGradingComponent
   ],
   imports: [
     BrowserModule,
