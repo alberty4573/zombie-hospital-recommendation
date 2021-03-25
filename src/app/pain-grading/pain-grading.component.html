@@ -1,1 +1,20 @@
-<p>pain-grading works!</p>
+<h3>Let me know how painful you are right now, so I can help you</h3>
+<div class="example-button-row">
+  <button mat-icon-button aria-label="Example icon-button with a heart icon" (click)="onClick(0)" >
+    <mat-icon>sentiment_satisfied
+    </mat-icon>
+  </button>
+  <button mat-icon-button color="primary" aria-label="Example icon-button with a heart icon" (click)="onClick(1)">
+    <mat-icon>sentiment_neutral</mat-icon>
+  </button>
+  <button mat-icon-button color="accent" aria-label="Example icon-button with a heart icon" (click)="onClick(2)">
+    <mat-icon>sentiment_dissatisfied</mat-icon>
+  </button>
+  <button mat-icon-button color="warn" aria-label="Example icon-button with a heart icon" (click)="onClick(3)">
+    <mat-icon>sentiment_very_dissatisfied
+    </mat-icon>
+  </button>
+  <button mat-icon-button aria-label="Example icon-button with a heart icon" (click)="onClick(4)">
+    <mat-icon>mood_bad</mat-icon>
+  </button>
+</div>

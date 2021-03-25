@@ -26,13 +26,10 @@ export class IllnessSelectionComponent implements OnInit {
   getIllness() {
     this.illnessService.getIllnesses().subscribe(res => {
       this.illness = res,
-      // this.illness._embedded.illnesses.map(eachIllness => this.illnesses.push(eachIllness.Iillness))
       this.illness._embedded.illnesses.forEach(eachIllness => {
         console.log(eachIllness),
         this.illnesses.push(eachIllness.illness)
       })
-      // this.illness._embedded.illnesses.forEach(eachIllness => this.illnesses.push(eachIllness)),
-      console.log('new thing', this.illnesses)
     });
   }
 

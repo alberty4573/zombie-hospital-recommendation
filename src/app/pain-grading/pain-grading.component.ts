@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from "@angular/router";
+import { IllnessService } from '../illness.service';
+
 
 @Component({
   selector: 'app-pain-grading',
@@ -7,9 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PainGradingComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router,
+    private illnessService: IllnessService
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  onClick(painLevel: number) {
+    console.log(painLevel);
+    this.router.navigate(['/hospital-suggestion'])
   }
 
 }

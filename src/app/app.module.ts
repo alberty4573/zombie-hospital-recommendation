@@ -7,7 +7,12 @@ import { IllnessSelectionComponent } from './illness-selection/illness-selection
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import {MatListModule} from '@angular/material/list';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
+
+
 import { PainGradingComponent } from './pain-grading/pain-grading.component';
+import { HospitalSuggestionComponent } from './hospital-suggestion/hospital-suggestion.component';
 
 
 
@@ -15,14 +20,17 @@ import { PainGradingComponent } from './pain-grading/pain-grading.component';
   declarations: [
     AppComponent,
     IllnessSelectionComponent,
-    PainGradingComponent
+    PainGradingComponent,
+    HospitalSuggestionComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    MatListModule
+    MatListModule,
+    MatButtonModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

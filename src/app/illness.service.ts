@@ -8,15 +8,24 @@ import { Observable } from 'rxjs';
 })
 export class IllnessService {
 
+  public painLevel!: number;
+
   private illnessApiUrl = "http://dmmw-api.australiaeast.cloudapp.azure.com:8080/illnesses";
 
   constructor(
-    private http: HttpClient,
-    //private messageService: MessageService
+    private http: HttpClient
     ) { }
 
     getIllnesses(): Observable<Iillness> {
       return this.http.get<Iillness>(this.illnessApiUrl)
+    }
+
+    set levelPain(painLevel: number) {
+      this.painLevel = painLevel;
+    }
+
+    get levelPain() {
+      return this.painLevel;
     }
 
 }
