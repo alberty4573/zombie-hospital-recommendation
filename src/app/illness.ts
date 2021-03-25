@@ -17,12 +17,12 @@ interface _embedded {
     illnesses: illnesses[];
 }
 
-interface _links2{
+export interface _links2{
     self: any;
     next: any;
 }
 
-interface page{
+export interface page{
     size: number;
     totoalElements: number;
     totalPages: number;
@@ -32,8 +32,11 @@ interface page{
 
 
 
+
 export interface Iillness {
     _embedded: _embedded;
     _links: _links2;
     page: page;
 }
+
+

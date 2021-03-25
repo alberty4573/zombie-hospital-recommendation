@@ -27,7 +27,6 @@ export class IllnessSelectionComponent implements OnInit {
     this.illnessService.getIllnesses().subscribe(res => {
       this.illness = res,
       this.illness._embedded.illnesses.forEach(eachIllness => {
-        console.log(eachIllness),
         this.illnesses.push(eachIllness.illness)
       })
     });
