@@ -20,7 +20,6 @@ export class PainGradingComponent implements OnInit {
 
   onClick(painLevel: number) {
     this.illnessService.levelPain = painLevel;
-    //console.log(this.illnessService.levelPain);
 
     this.router.navigate(['/hospital-suggestion'])
   }

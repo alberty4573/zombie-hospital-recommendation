@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IllnessService } from '../illness.service';
 import { Hospital, sortedHospital, hospital } from '../hospital';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-hospital-suggestion',
@@ -15,33 +16,39 @@ export class HospitalSuggestionComponent implements OnInit {
   
 
   constructor(
+    private router: Router,
     private illnessService: IllnessService
  
   ) { }
 
   ngOnInit(): void {
     console.log(this.illnessService.levelPain)
-    this.getHospitals();
-    //this.sortHospitals();
+    if (this.illnessService.levelPain !== undefined) {
+      this.getHospitals();
+    } else {
+      this.router.navigate(['/illness'])
+    }
   }
 
   getHospitals() {
     this.illnessService.getHospitals().subscribe(res => {
       this.hospitals = res,
-      console.log(this.hospitals)
-      this.hospitals._embedded.hospitals.forEach(hospital => {
-        const sortedHospital: sortedHospital = {
-          name: hospital.name,
-          levelofPain: this.illnessService.levelPain,
-          averageProcessingTime: this.findAverageProcessTime(hospital),
-          patienCount: this.findPatienCount(hospital),
-          waitingTime: this.calculateWaitingTime(hospital)
-        };
-        this.sortedHospitals.push(sortedHospital);
-      })
-      this.sortHospitals();
-      console.log("unsorted", this.sortedHospitals)
+      this.reconstructHospitalData(),
+      this.sortHospitals()
     });
+  }
+
+  reconstructHospitalData() {
+    this.hospitals._embedded.hospitals.forEach(hospital => {
+      const sortedHospital: sortedHospital = {
+        name: hospital.name,
+        levelofPain: this.illnessService.levelPain,
+        averageProcessingTime: this.findAverageProcessTime(hospital),
+        patienCount: this.findPatienCount(hospital),
+        waitingTime: this.calculateWaitingTime(hospital)
+      };
+      this.sortedHospitals.push(sortedHospital);
+    })
   }
 
   sortHospitals() {
