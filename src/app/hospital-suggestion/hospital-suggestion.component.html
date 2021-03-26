@@ -1,1 +1,15 @@
-<p>hospital-suggestion works!</p>
+<mat-accordion class="example-headers-align" multi>
+
+<mat-expansion-panel *ngFor="let sortedhospital of sortedHospitals">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{sortedhospital.name}}
+      </mat-panel-title>
+      <mat-panel-description>
+        waiting time: 
+        <mat-icon></mat-icon>
+        {{sortedhospital.waitingTime}} mins
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+  </mat-expansion-panel>
+</mat-accordion>

@@ -22,6 +22,7 @@ export class HospitalSuggestionComponent implements OnInit {
   ngOnInit(): void {
     console.log(this.illnessService.levelPain)
     this.getHospitals();
+    //this.sortHospitals();
   }
 
   getHospitals() {
@@ -33,23 +34,33 @@ export class HospitalSuggestionComponent implements OnInit {
           name: hospital.name,
           levelofPain: this.illnessService.levelPain,
           averageProcessingTime: this.findAverageProcessTime(hospital),
-          patienCount: 0,
-          waitingTime: 0
+          patienCount: this.findPatienCount(hospital),
+          waitingTime: this.calculateWaitingTime(hospital)
         };
         this.sortedHospitals.push(sortedHospital);
       })
-      console.log(this.sortedHospitals)
+      this.sortHospitals();
+      console.log("unsorted", this.sortedHospitals)
     });
   }
 
-  findAverageProcessTime(hospital: hospital) {
-    const waitingListItem = hospital.waitingList.find(waitingListItem => waitingListItem.levelOfPain === this.illnessService.levelPain);
-    return waitingListItem!.averageProcessTime;
+  sortHospitals() {
+    this.sortedHospitals.sort((a, b) => a.waitingTime - b.waitingTime);
   }
 
   findAverageProcessTime(hospital: hospital) {
     const waitingListItem = hospital.waitingList.find(waitingListItem => waitingListItem.levelOfPain === this.illnessService.levelPain);
     return waitingListItem!.averageProcessTime;
+  }
+
+  findPatienCount(hospital: hospital) {
+    const waitingListItem = hospital.waitingList.find(waitingListItem => waitingListItem.levelOfPain === this.illnessService.levelPain);
+    return waitingListItem!.patientCount;
+  }
+
+  calculateWaitingTime(hospital: hospital) {
+    const waitingListItem = hospital.waitingList.find(waitingListItem => waitingListItem.levelOfPain === this.illnessService.levelPain);
+    return waitingListItem!.averageProcessTime * waitingListItem!.patientCount;
   }
 
 }

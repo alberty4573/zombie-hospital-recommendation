@@ -9,6 +9,9 @@ import { HttpClientModule } from '@angular/common/http';
 import {MatListModule} from '@angular/material/list';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatFormFieldModule} from '@angular/material/form-field';
+
 
 
 import { PainGradingComponent } from './pain-grading/pain-grading.component';
@@ -30,7 +33,9 @@ import { HospitalSuggestionComponent } from './hospital-suggestion/hospital-sugg
     HttpClientModule,
     MatListModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatExpansionModule,
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]
