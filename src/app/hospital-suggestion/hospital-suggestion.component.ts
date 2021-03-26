@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { IllnessService } from '../illness.service';
 import { Hospital, sortedHospital, hospital } from '../hospital';
 import { Router } from '@angular/router';
+import { FormControl } from '@angular/forms';
+
 
 @Component({
   selector: 'app-hospital-suggestion',
@@ -12,7 +14,7 @@ import { Router } from '@angular/router';
 export class HospitalSuggestionComponent implements OnInit {
   hospitals = {} as Hospital;
   sortedHospitals = [] as sortedHospital[];
-
+  userName = new FormControl('');
   
 
   constructor(
@@ -22,12 +24,12 @@ export class HospitalSuggestionComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    console.log(this.illnessService.levelPain)
     if (this.illnessService.levelPain !== undefined) {
       this.getHospitals();
     } else {
       this.router.navigate(['/illness'])
     }
+    // this.getHospitals();
   }
 
   getHospitals() {
@@ -70,4 +72,7 @@ export class HospitalSuggestionComponent implements OnInit {
     return waitingListItem!.averageProcessTime * waitingListItem!.patientCount;
   }
 
+  onSubmit() {
+    console.log(this.userName.value, this.illnessService.patientIllness);
+  }
 }

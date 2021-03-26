@@ -32,4 +32,9 @@ export class IllnessSelectionComponent implements OnInit {
     });
   }
 
+onSubmit(value: string) {
+  console.log(value)
+  this.illnessService.patientIllness = value;
+}
+
 }

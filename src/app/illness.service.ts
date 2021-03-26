@@ -10,6 +10,7 @@ import { Hospital } from './hospital';
 export class IllnessService {
 
   private painLevel!: number;
+  private patientsIllness!: string;
 
   private illnessApiUrl = "http://dmmw-api.australiaeast.cloudapp.azure.com:8080/illnesses";
   private hospitalApiUrl = "http://dmmw-api.australiaeast.cloudapp.azure.com:8080/hospitals"
@@ -32,6 +33,14 @@ export class IllnessService {
 
     get levelPain() {
       return this.painLevel;
+    }
+
+    set patientIllness(patientIlness: string) {
+      this.patientsIllness = patientIlness;
+    }
+
+    get patientIllness() {
+      return this.patientsIllness;
     }
 
 }
