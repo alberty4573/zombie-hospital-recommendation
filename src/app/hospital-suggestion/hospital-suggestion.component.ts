@@ -3,6 +3,7 @@ import { IllnessService } from '../illness.service';
 import { Hospital, sortedHospital, hospital } from '../hospital';
 import { Router } from '@angular/router';
 import { FormControl } from '@angular/forms';
+import { PatientInfo } from '../patient-info';
 
 
 @Component({
@@ -15,6 +16,10 @@ export class HospitalSuggestionComponent implements OnInit {
   hospitals = {} as Hospital;
   sortedHospitals = [] as sortedHospital[];
   userName = new FormControl('');
+
+  patientInfo = {} as PatientInfo;
+
+  
   
 
   constructor(
@@ -74,5 +79,8 @@ export class HospitalSuggestionComponent implements OnInit {
 
   onSubmit() {
     console.log(this.userName.value, this.illnessService.patientIllness);
+    this.patientInfo.illness = this.illnessService.patientIllness;
+    this.patientInfo.name = this.userName.value;
+    this.illnessService.postPatientInfo(this.patientInfo).subscribe(Response=> console.log(Response))
   }
 }

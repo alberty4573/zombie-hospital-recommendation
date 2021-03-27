@@ -3,6 +3,7 @@ import {Iillness} from './illness';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Hospital } from './hospital';
+import { PatientInfo } from './patient-info';
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +26,10 @@ export class IllnessService {
 
     getHospitals(): Observable<Hospital> {
       return this.http.get<Hospital>(this.hospitalApiUrl)
+    }
+
+    postPatientInfo(patientInfo: PatientInfo): Observable<PatientInfo> {
+      return this.http.post<PatientInfo>('https://localhost:5001/api/userdata', {patientInfo});
     }
 
     set levelPain(painLevel: number) {
