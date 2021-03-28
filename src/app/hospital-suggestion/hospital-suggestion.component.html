@@ -1,33 +1,36 @@
 <div class="deco">
   <mat-accordion class="example-headers-align" multi>
-      <p>
-          <span>
-              Here are some suggested hospitals for you
-          </span>
-      </p>
+          <h1>
+              Here are some suggested hospitals just for you
+          </h1>
   <mat-expansion-panel *ngFor="let sortedhospital of sortedHospitals">
       <mat-expansion-panel-header>
         <mat-panel-title>
           {{sortedhospital.name}}
         </mat-panel-title>
         <mat-panel-description>
-          waiting time: 
           <mat-icon></mat-icon>
+          waiting time: 
           {{sortedhospital.waitingTime}} mins
         </mat-panel-description>
       </mat-expansion-panel-header>
+      At your pain level, there are 
+      {{sortedhospital.patienCount}}
+      people waiting in front of you.
     </mat-expansion-panel>
   </mat-accordion>
   
   <form class="example-form">
       <mat-form-field class="example-full-width">
-        <mat-label>Please Type In Your Name to help us have further development</mat-label>
+        <mat-label>Please Type In Your Name For Further Development</mat-label>
         <input matInput placeholder="Your Name" [formControl]= "userName" >
       </mat-form-field>
   
       
   </form>
-  
-  <button mat-raised-button color="primary" (click)="onSubmit()">Submit</button>
+  <div >
+    <button mat-raised-button color="primary" (click)="onSubmit()">Submit</button>
+
+  </div>
 
 </div>
