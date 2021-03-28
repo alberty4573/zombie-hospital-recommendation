@@ -1,20 +1,26 @@
-<h3>Let me know how painful you are right now, so I can help you</h3>
-<div class="example-button-row">
-  <button mat-icon-button aria-label="Example icon-button with a heart icon" (click)="onClick(0)" >
-    <mat-icon>sentiment_satisfied
-    </mat-icon>
-  </button>
-  <button mat-icon-button color="primary" aria-label="Example icon-button with a heart icon" (click)="onClick(1)">
-    <mat-icon>sentiment_neutral</mat-icon>
-  </button>
-  <button mat-icon-button color="accent" aria-label="Example icon-button with a heart icon" (click)="onClick(2)">
-    <mat-icon>sentiment_dissatisfied</mat-icon>
-  </button>
-  <button mat-icon-button color="warn" aria-label="Example icon-button with a heart icon" (click)="onClick(3)">
-    <mat-icon>sentiment_very_dissatisfied
-    </mat-icon>
-  </button>
-  <button mat-icon-button aria-label="Example icon-button with a heart icon" (click)="onClick(4)">
-    <mat-icon>mood_bad</mat-icon>
-  </button>
+<div class="deco">
+  <div>
+    <h1>How Painful You Are?</h1>
+    <div class="example-button-row">
+      <button mat-icon-button aria-label="sentiment_satisfied" (click)="onClick(0)" >
+        <mat-icon style="color: rgba(6, 133, 192, 0.781);">sentiment_satisfied
+        </mat-icon>
+      </button>
+      <button mat-icon-button  aria-label="sentiment_neutral" (click)="onClick(1)">
+        <mat-icon style="color: rgba(218, 37, 37, 0.781);">sentiment_neutral</mat-icon>
+      </button>
+      <button mat-icon-button  aria-label="sentiment_dissatisfied" (click)="onClick(2)">
+        <mat-icon style="color: rgba(236, 52, 52, 0.781);">sentiment_dissatisfied</mat-icon>
+      </button>
+      <button mat-icon-button color="warn" aria-label="sentiment_very_dissatisfied" (click)="onClick(3)">
+        <mat-icon>sentiment_very_dissatisfied
+        </mat-icon>
+      </button>
+      <button mat-icon-button aria-label="mood_bad" (click)="onClick(4)">
+        <mat-icon>mood_bad</mat-icon>
+      </button>
+    </div>
+
+  </div>
+
 </div>

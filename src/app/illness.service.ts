@@ -9,6 +9,10 @@ import { PatientInfo } from './patient-info';
   providedIn: 'root'
 })
 export class IllnessService {
+  
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
 
   private painLevel!: number;
   private patientsIllness!: string;
@@ -29,7 +33,7 @@ export class IllnessService {
     }
 
     postPatientInfo(patientInfo: PatientInfo): Observable<PatientInfo> {
-      return this.http.post<PatientInfo>('https://localhost:5001/api/userdata', {patientInfo});
+      return this.http.post<PatientInfo>('https://localhost:5001/api/userdata', {patientInfo}, this.httpOptions);
     }
 
     set levelPain(painLevel: number) {

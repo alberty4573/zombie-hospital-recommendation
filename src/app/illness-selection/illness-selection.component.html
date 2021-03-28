@@ -1,14 +1,21 @@
-<h1>Please select your illness</h1>
-<mat-selection-list #selectedIllness [multiple]="false">
-    <a routerLink="/pain-grading">
-    <mat-list-option *ngFor="let illness of illnesses" [value]="illness.name" (click) = "onSubmit(selectedIllness.selectedOptions.selected[0]?.value)">
-        <div>
-            {{illness.name}}
-        </div>
-    </mat-list-option>
-</a>
-</mat-selection-list>
+<div class="deco">
+    <div>
 
-<p>
-    Option selected: {{selectedIllness.selectedOptions.selected[0]?.value}}
-  </p>
+        <h1>Belive Us, We Can Help</h1>
+        <h2>Please Select Your Illness</h2>
+    </div>
+    <mat-selection-list #selectedIllness [multiple]="false">
+        <a routerLink="/pain-grading" class="anchor-style">
+        <mat-list-option *ngFor="let illness of illnesses" [value]="illness.name" (click) = "onSubmit(selectedIllness.selectedOptions.selected[0]?.value)">
+            <div >
+                <mat-icon color="blue">
+                    sick
+                </mat-icon>
+                {{illness.name}}
+            </div>
+        </mat-list-option>
+    </a>
+    </mat-selection-list>
+
+</div>
+

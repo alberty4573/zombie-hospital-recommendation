@@ -17,3 +17,11 @@
 .example-full-width {
   width: 100%;
 }
+
+.deco {
+  background: #67a6c5;
+height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
+}

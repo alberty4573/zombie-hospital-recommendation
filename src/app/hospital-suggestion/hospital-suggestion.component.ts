@@ -78,7 +78,6 @@ export class HospitalSuggestionComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.userName.value, this.illnessService.patientIllness);
     this.patientInfo.illness = this.illnessService.patientIllness;
     this.patientInfo.name = this.userName.value;
     this.illnessService.postPatientInfo(this.patientInfo).subscribe(Response=> console.log(Response))

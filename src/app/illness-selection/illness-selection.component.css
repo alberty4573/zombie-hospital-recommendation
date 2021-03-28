@@ -1,0 +1,34 @@
+.mat-option.mat-active {
+    background: red !important;
+  }
+
+  .mat-option:hover:not(.mat-option-disabled) {
+      background: red;
+  }
+
+  .mat-option:focus:not(.mat-option-disabled){
+    background: red;
+  }
+
+  /* :hover:not(.mat-option-disabled),
+:focus:not(.mat-option-disabled) {
+  background: #607d8b;
+  color: white
+} */
+
+.deco {
+    background: #67a6c5;
+	height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.deco .anchor-style {
+    text-decoration: none !important;
+    cursor: default !important;
+   }
+
+   .mat-icon {
+       color: #da5554;
+   }
