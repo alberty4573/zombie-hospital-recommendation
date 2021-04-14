@@ -24,8 +24,9 @@ export class IllnessService {
     private http: HttpClient
     ) { }
 
-    getIllnesses(): Observable<Iillness> {
-      return this.http.get<Iillness>(this.illnessApiUrl)
+    getIllnesses(pageNumber: number): Observable<Iillness> {
+      console.log("service page", pageNumber)
+      return this.http.get<Iillness>(this.illnessApiUrl + '?page=' + pageNumber)
     }
 
     getHospitals(): Observable<Hospital> {

@@ -17,5 +17,15 @@
     </a>
     </mat-selection-list>
 
+    <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <mat-label>Page Number</mat-label>
+          <input matInput placeholder="Page Number" [formControl]= "pageNumber" >
+        </mat-form-field>
+    
+        
+    </form>
+    <button mat-raised-button (click)="onClick()">Submit</button>
+
 </div>
 
