@@ -4,7 +4,21 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Development server
 
+To install all material and rxjs package, please run `npm install`
+
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
+It should load the initial page to ask you select your illness.
+
+To Run backend and database, please refer to zombie-hospital-recommendation-backend.
+
+
+
+
+
+
+
+Following doesn't apply.
 
 ## Code scaffolding
 
